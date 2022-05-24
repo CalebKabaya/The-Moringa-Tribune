@@ -11,7 +11,7 @@ def welcome(request):
 def news_of_day(request):
     date = dt.date.today()
     #function to convert date object to find the exact day
-    return render(request, 'all-news/today-news.html', {"date": date,})
+    return render(request, 'all-news/todays-news.html', {"date": date,})
 
    
 
@@ -30,7 +30,7 @@ def past_days_news(request,past_date):
         return redirect(news_of_day)
     
       
-    return redirect('request','all-news/past-news.html',{"date": date})  
+    return render(request,'all-news/past-news.html',{"date": date})  
 
 
 

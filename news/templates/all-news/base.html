@@ -1,4 +1,6 @@
-{% load boostrap3%}
+{% load bootstrap3%}
+{% load static%}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +12,8 @@
     {% endif %}
 
     {% block styles %}
-    {% boostrap_css%}
+    {% bootstrap_css%}
+    <link rel="stylesheet" href="{% static 'css/basenews.css' %}">
     {% endblock%}
 
 </head>
