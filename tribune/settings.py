@@ -57,13 +57,13 @@ ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True
 
-ALLOWED_HOSTS = [
-    '0.0.0.0'
+# ALLOWED_HOSTS = [
+#     '0.0.0.0'
 
-    'https://moringatribunenews1.herokuapp.com/'
-    '127.0.0.1'
+#     'https://moringatribunenews1.herokuapp.com/'
+#     '127.0.0.1'
 
-    ]
+#     ]
 
 
 # Application definition
@@ -179,4 +179,6 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+django_heroku.settings(locals())
+
 
