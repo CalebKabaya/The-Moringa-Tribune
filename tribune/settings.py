@@ -57,7 +57,13 @@ ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True
 
-ALLOWED_HOSTS = ['https://moringatribunenews1.herokuapp.com/']
+ALLOWED_HOSTS = [
+    '0.0.0.0'
+
+    'https://moringatribunenews1.herokuapp.com/'
+    '127.0.0.1'
+
+    ]
 
 
 # Application definition
