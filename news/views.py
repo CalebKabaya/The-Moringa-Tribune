@@ -16,10 +16,13 @@ def welcome(request):
     # return render(request, 'all-news/todays-news.html', {"date": date,})
 
 def news_today(request):
+
     date = dt.date.today()
     news = Article.todays_news()
-    return render(request, 'all-news/todays-news.html', {"date": date,"news":news})   
-
+    return render(request, 'all-news/todays-news.html', {"date": date,"news":news,})   
+def news_all(request):
+    all_news= Article.objects.all()
+    return render(request, 'all-news/all_news.html', {"all_news": all_news}) 
 
     return day
 def past_days_news(request,past_date):
