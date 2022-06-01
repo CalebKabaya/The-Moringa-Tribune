@@ -53,3 +53,6 @@ class Article(models.Model):
         all_news=Article.objects.all()  
         return all_news           
 
+class NewsLetterRecipient(models.Model):
+    name=models.CharField(max_length=30)
+    email=models.EmailField()
