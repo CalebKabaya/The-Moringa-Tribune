@@ -8,7 +8,7 @@ from .models import Article, NewsLetterRecipient
 from .forms import NEWSLETTERFORM
 from .emails import send_welcome_email
 from django.contrib.auth.decorators import login_required
-
+from .forms import NewsArticleForm,NEWSLETTERFORM
 
 
 # Create your views here.
@@ -78,14 +78,28 @@ def search_results(request):
  
         return render(request, 'all-news/search.html',{"message":message})
 
+
 @login_required(login_url='/accounts/login/')
-def article(request,article_id):
+def article(request, article_id):
     try:
         article = Article.objects.get(id = article_id)
     except Article.DoesNotExist:
         raise Http404()
     return render(request,"all-news/article.html", {"article":article})
 
+@login_required(login_url='/accounts/login')
+def new_article(request):
+    current_user=request.user
+    if request.method=='POST':
+        form=NewsArticleForm(request.POST,request.FILES)
+        if form.is_valid():
+            article.form.save(commit=False)
+            article.editor=current_user
+            article.save()
+        return redirect('NewsToday')    
+    else:
+        form=NewsArticleForm()
+    return render(request, 'new_article.html', {"form": form})
 
 
 

@@ -74,6 +74,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'news.apps.NewsConfig',
     'bootstrap3',
+    'tinymce',
     # 'django_heroku.settings(locals())'
     
 
