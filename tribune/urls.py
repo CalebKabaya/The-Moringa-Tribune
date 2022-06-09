@@ -24,6 +24,8 @@ from django.urls import re_path
 from django.contrib.auth import views 
 
 from django.contrib import admin
+from rest_framework.authtoken.views import obtain_auth_token
+
 
 urlpatterns = [
     re_path(r'^admin/', admin.site.urls),
@@ -31,8 +33,10 @@ urlpatterns = [
     re_path(r'^accounts/', include('registration.backends.simple.urls')),
     # re_path(r'^logout/$', views.logout, {"next_page": '/'}), 
     re_path(r'^tinymce/', include('tinymce.urls')),
+    re_path(r'^api-token-auth/', obtain_auth_token)
 
 
 
 
 ]
+    # "token": "adcce2e43221327e1ead7fc8659bb7f7e1c85650"
